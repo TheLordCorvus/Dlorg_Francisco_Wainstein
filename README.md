@@ -20,3 +20,8 @@ ls -l dlorg
 chmod +x dlorg
 
 ```
+# Dlorg script
+
+The script created has the purpose of creating (if not already created) folders for specific type of files, and then check existing files inside the directory if they has one of the suffixes listed in the script. If they do, then they are moved to their respective folders for better file management.
+
+For the script to work
