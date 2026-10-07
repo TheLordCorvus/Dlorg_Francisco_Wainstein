@@ -1,2 +1,36 @@
 #!/usr/bin/env bash
 
+# Define route destination as variable
+DIR="$HOME/Downloads"
+
+# Creates the following folders between {} in the DIR defined above
+
+mkdir -p "$DIR"/{Images,Videos,Music,Docs,Text,PDFs,Presentation,Code}
+
+# for every file in the directory, check if it is a file, 
+# else it continues to check next file
+
+for file in "$DIR"/*; do
+    [ -f "$file" ] || continue
+
+    name=$(basename "$file")  
+    ext="${name##*.}"
+    ext="${ext,,}"
+# Compares the extension of a file and saves it in the corresponding directory
+    case "$ext" in
+        jpeg|jpg|png) dest="Images" ;;
+        mp4)          dest="Videos" ;;
+        mp3)          dest="Music" ;;
+        doc|docx)     dest="Docs" ;;
+        txt)          dest="Text" ;;
+        pdf)          dest="PDFs" ;;
+        pptx)         dest="Presentation" ;;
+        js|json|py|css) dest="Code";;
+# Leaves a file be if its extension or suffix does not correspond with any of the listed
+        *)          continue ;;
+    esac
+# Moves the file to its directory
+    mv -n "$file" "$DIR/$dest/"
+
+done
+
