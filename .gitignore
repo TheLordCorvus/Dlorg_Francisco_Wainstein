@@ -1,7 +1,7 @@
 # Standard vim gitignore file
  
 # Ignore swap files
-*,swp
+*.swp
 *.swo
 *.swn
 
