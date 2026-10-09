@@ -42,3 +42,18 @@ For example using mv to move an image file from home to Downloads and it went st
 ![Downloads Tree](dlorg_tree.png)
 
 
+# Moving file from host computer into VM
+
+An image file was moved from host computer to the virtual machine using the following command;
+
+```bash
+
+scp file/path/for/file.suffix VMUser@IP:Folder/destination/
+
+```
+
+![Moved image from host comptuer](Moved_image.png)
+
+
+
+
