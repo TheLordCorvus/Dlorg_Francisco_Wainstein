@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+DIR="$HOME/Downloads"
+SCRIPT="$HOME/Documents/github/Dlorg_Francisco_Wainstein/dlorg"
+
+inotifywait -m -q -e close_write -e moved_to --format '%f' "$DIR" | while read -r $f; do
+    "$SCRIPT"
+done
+ 
