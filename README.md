@@ -39,6 +39,6 @@ While the script is being executed, any and all files that comes into the Downlo
 
 For example using mv to move an image file from home to Downloads and it went straight to the Images folder.
 
-![Moved image](~/Downloads/Images/test_image.png)
+![Moved image](home/francisco/Downloads/Images/test_image.png)
 
 
