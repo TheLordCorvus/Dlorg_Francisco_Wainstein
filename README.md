@@ -92,7 +92,7 @@ systemctl --user enable --now dlorg.service
 
 the --now is for it to work directly and the reload makes the system read the file again.
 
-#Dlorg repository
+# Dlorg repository
 
 The Dlorg lab repository is a local git inside the VM machine where the lab is worked on, connected to github via cloning the repository.
 
