@@ -61,3 +61,69 @@ scp file/path/for/file.suffix VMUser@IP:Folder/destination/
 In case a folder and its content was deleted, and a new file is created, while the script is working, it will automatically run the first script and create a folder like the one deleted. As it has -p means that if it already exists it does not create one, and therefore we avoid any problems with execution. The script then runs as regular and identifies the new file to move it to its corresponding folder.
 
 
+# Service
+
+Created a service out of the second script so that when the session starts, and new files comes in to the Downloads folder, they get sorted right away.
+
+For the service to work, you must first create the folder in .config system
+
+```bash
+
+mkdir -p ~/.config/systemd/user
+
+```
+
+and then use vim to create the service file
+
+```bash
+
+vim ~/.config/systemd/user/dlorg.service
+```
+Edit the service file so that it executes the script on session start and that it starts working once enabled
+
+Service enabled using;
+
+```bash
+
+systemctl --user daemon-reload
+systemctl --user enable --now dlorg.service
+
+```
+
+the --now is for it to work directly and the reload makes the system read the file again.
+
+#Dlorg repository
+
+The Dlorg lab repository is a local git inside the VM machine where the lab is worked on, connected to github via cloning the repository.
+
+To clone the repository, the following was needed:
+
+- A copy of the ssh-link from the github repository
+- Inside the VM, go into the destination folder, in this case github folder
+- git clone #Github-Repository-SSH-Link
+
+# Current state
+
+Dlorg has now become a working repository with two dlorg scripts and a service.
+
+1 - Dlorg script, the first script created that targets Download folder and creates the sought after folders {ex. Images, Docs, Text, Presentation, Music, Videos..} and uses a case to compare the suffix or extension of files. If any file contains an extension listed to be moved to a specific folder, the script moves said file to folder.
+
+The first script required the following command to execute;
+```bash
+./dlorg
+```
+
+2 - Dlorg-update script, the second script used inotifywait to, when executed, watch what new files appear in the Downdloads directory and run the dlorg script to sort them out.
+
+The second script required the following command to execute;
+
+```bash
+./dlorg-update
+```
+and stayed watching until stopped with " Ctrl + C "
+
+3 - Dlorg service, to automatize the scripts and make them work without the need to manually execute them, a service was created and needed a systemlink to execute the service and have it enabled
+
+Once created the service, the link was made using systemctl --user (daemon-reload and enable #service)
+
+
