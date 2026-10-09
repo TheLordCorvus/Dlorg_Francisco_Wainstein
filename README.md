@@ -56,4 +56,8 @@ scp file/path/for/file.suffix VMUser@IP:Folder/destination/
 
 
 
+# Case Handle: Folder deleted
+
+In case a folder and its content was deleted, and a new file is created, while the script is working, it will automatically run the first script and create a folder like the one deleted. As it has -p means that if it already exists it does not create one, and therefore we avoid any problems with execution. The script then runs as regular and identifies the new file to move it to its corresponding folder.
+
 
