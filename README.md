@@ -24,4 +24,21 @@ chmod +x dlorg
 
 The script created has the purpose of creating (if not already created) folders for specific type of files, and then check existing files inside the directory if they has one of the suffixes listed in the script. If they do, then they are moved to their respective folders for better file management.
 
-For the script to work
+For the script to work one needs atleast a second terminal to use the following command;
+```
+./dlorg
+```
+Inside the repository directory, and the other terminal in the Downloads directory. So first you create the files using touch, and after they are created, execute the command.
+
+
+# Dlorg Update script
+
+Created a second script to watch the first, and execute it when a new file is added to the Downloads directory in home.
+
+While the script is being executed, any and all files that comes into the Downloads directory gets sorted.
+
+For example using mv to move an image file from home to Downloads and it went straight to the Images folder.
+
+![Moved image](~/Downloads/Images/test_image.png)
+
+
